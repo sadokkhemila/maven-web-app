@@ -20,9 +20,9 @@ pipeline {
                 }
             }
         }
-        stage('upload war to nexus'){
+         stage('upload war to nexus'){
 	    steps{
-	      script{
+	       script{
 		 nexusArtifactUploader artifacts: [	
 			[
 				artifactId: '01-maven-web-app',
