@@ -26,7 +26,7 @@ pipeline {
 			[
 				artifactId: '01-maven-web-app',
 				classifier: '',
-				file: 'target/01-maven-web-app-3.0.war',
+				file: 'target/01-maven-web-app-3.0-SNAPSHOT.war',
 				type: war		
 			]	
 		],
@@ -34,8 +34,8 @@ pipeline {
 		groupId: 'in.ashokit',
 		nexusUrl: '192.168.34.100:8081',
 		protocol: 'http',
-		repository: 'maven-nexus-repo'
-		version: '3.0'
+		repository: 'maven-nexus-repo',
+		version: '3.0-SNAPSHOT'
 	        }
             }
         
