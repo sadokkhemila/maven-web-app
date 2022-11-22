@@ -1,22 +1,27 @@
-node{
-    
-    stage('Clone repo'){
-        git credentialsId: 'GIT-Credentials', url: 'https://github.com/ashokitschool/maven-web-app.git'
+pipeline {
+    agent any
+    tools {
+        maven "maven"
     }
+   
     
-    stage('Maven Build'){
-        def mavenHome = tool name: "Maven-3.8.6", type: "maven"
-        def mavenCMD = "${mavenHome}/bin/mvn"
-        sh "${mavenCMD} clean package"
-    }
-    
-    stage('SonarQube analysis') {       
-        withSonarQubeEnv('Sonar-Server-7.8') {
-       	sh "mvn sonar:sonar"    	
-    }
-        
-    stage('upload war to nexus'){
-	steps{
+    stages {
+         stage("Clone code from VCS") {
+             steps {
+                script {
+                    git 'https://github.com/sadokkhemila/appmavennexus.git';
+                }
+            }
+        }
+         stage("Maven Build") {
+             steps {
+                script {
+                    sh "mvn package -DskipTests=true"
+                }
+            }
+        }
+        stage('upload war to nexus'){
+	    steps{
 		nexusArtifactUploader artifacts: [	
 			[
 				artifactId: '01-maven-web-app',
@@ -25,30 +30,15 @@ node{
 				type: war		
 			]	
 		],
-		credentialsId: 'nexus3',
+		credentialsId: 'nexus-cred',
 		groupId: 'in.ashokit',
-		nexusUrl: '',
+		nexusUrl: '192.168.34.100:8081',
 		protocol: 'http',
-		repository: 'ashokit-release'
+		repository: 'maven-nexus-repo'
 		version: '1.0.0'
-	}
-}
-    
-    stage('Build Image'){
-        sh 'docker build -t ashokit/mavenwebapp .'
-    }
-    
-    stage('Push Image'){
-        withCredentials([string(credentialsId: 'DOCKER-CREDENTIALS', variable: 'DOCKER_CREDENTIALS')]) {
-            sh 'docker login -u ashokit -p ${DOCKER_CREDENTIALS}'
+	        }
+            }
+        
         }
-        sh 'docker push ashokit/mavenwebapp'
-    }
-    
-    stage('Deploy App'){
-        kubernetesDeploy(
-            configs: 'maven-web-app-deploy.yml',
-            kubeconfigId: 'Kube-Config'
-        )
-    }    
 }
+    
