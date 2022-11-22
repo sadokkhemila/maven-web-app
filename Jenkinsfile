@@ -22,7 +22,8 @@ pipeline {
         }
         stage('upload war to nexus'){
 	    steps{
-		nexusArtifactUploader artifacts: [	
+	      script{
+		 nexusArtifactUploader artifacts: [	
 			[
 				artifactId: '01-maven-web-app',
 				classifier: '',
@@ -38,7 +39,7 @@ pipeline {
 		version: '3.0-SNAPSHOT'
 	        }
             }
-        
-        }
+	}
+     }
 }
     
