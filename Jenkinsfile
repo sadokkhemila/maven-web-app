@@ -26,7 +26,7 @@ pipeline {
 			[
 				artifactId: '01-maven-web-app',
 				classifier: '',
-				file: 'target/01-maven-web-app-3.0-SNAPSHOT.war',
+				file: 'target/01-maven-web-app-3.0.war',
 				type: war		
 			]	
 		],
@@ -35,7 +35,7 @@ pipeline {
 		nexusUrl: '192.168.34.100:8081',
 		protocol: 'http',
 		repository: 'maven-nexus-repo'
-		version: '3.0-SNAPSHOT'
+		version: '3.0'
 	        }
             }
         
