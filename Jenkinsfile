@@ -9,7 +9,7 @@ pipeline {
          stage("Clone code from VCS") {
              steps {
                 script {
-                    git 'https://github.com/sadokkhemila/appmavennexus.git';
+                    git 'https://github.com/sadokkhemila/maven-web-app.git';
                 }
             }
         }
