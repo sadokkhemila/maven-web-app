@@ -22,7 +22,7 @@ pipeline {
         }
          stage('upload war to nexus'){
 	     steps{
-	       
+		script{
 		          nexusArtifactUploader artifacts: [	
 			         [
 				      artifactId: '01-maven-web-app',
@@ -31,7 +31,7 @@ pipeline {
 				      type: war		
 			        ]	
 		          ],
-		          credentialsId: 'nexus3',
+		          credentialsId: 'nexus-cred',
 		          groupId: 'in.ashokit',
 		          nexusUrl: '192.168.49.100:8081',
 		          protocol: 'http',
@@ -39,7 +39,7 @@ pipeline {
 		          version: '3.0'
 	        }
             }
-	
+	 }
      }
 }
     
