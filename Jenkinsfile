@@ -1,3 +1,13 @@
+VAR1 = 'build architectures'
+def BuildANew(variables)
+{
+   echo "Build declaration"
+   build job: 'LocalJenkins', parameters:[
+        extendedChoice(name: 'VAR1', value: ${VAR1}),
+        param(name:'Variables', value:variables)
+    ]
+}
+
 pipeline {
     agent any
     tools {
