@@ -24,7 +24,7 @@ pipeline {
         }
          stage('upload war to nexus'){
 	    steps{
-	       script{
+	       
 		  nexusArtifactUploader artifacts: [	
 			[
 				artifactId: "01-maven-web-app",
@@ -41,7 +41,7 @@ pipeline {
 		  version: "3.0"
 	        }
             }
-	}
+	
      }
 }
     
