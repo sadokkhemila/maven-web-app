@@ -27,7 +27,7 @@ pipeline {
 			         [
 				      artifactId: '01-maven-web-app',
 				      classifier: '',
-				      file: '/var/lib/jenkins/workspace/maven-nexus-p2/target/01-maven-web-app.war',
+				      file: 'target/01-maven-web-app.war',
 				      type: 'war'	
 			        ]	
 		  ],
@@ -36,7 +36,7 @@ pipeline {
 		  nexusUrl: '192.168.49.100:8081',
 		  nexusVersion: 'nexus3',
 		  protocol: 'http',
-		  repository: 'maven-nexus-repo',
+		  repository: 'http://192.168.49.100:8081/repository/maven-nexus-repo/',
 		  version: '3.0'
 	        }
             }
