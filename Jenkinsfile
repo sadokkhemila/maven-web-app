@@ -40,7 +40,7 @@ pipeline {
 		  version: '3.0'
 	        }
             }
-	 }
+	 
      }
 }
     
