@@ -27,8 +27,8 @@ pipeline {
 			         [
 				      artifactId: '01-maven-web-app',
 				      classifier: '',
-				      file: 'target/01-maven-web-app-3.0.jar',
-				      type: jar	
+				      file: 'target/01-maven-web-app-3.0.war',
+				      type: war	
 			        ]	
 		          ],
 		          credentialsId: 'nexus-cred',
