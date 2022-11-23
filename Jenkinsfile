@@ -1,5 +1,3 @@
-
-
 pipeline {
     agent any
     tools {
@@ -23,22 +21,22 @@ pipeline {
             }
         }
          stage('upload war to nexus'){
-	    steps{
+	     steps{
 	       
-		  nexusArtifactUploader artifacts: [	
-			[
-				artifactId: "01-maven-web-app",
-				classifier: "",
-				file: "target/01-maven-web-app-3.0.war",
-				type: war		
-			]	
-		  ],
-		  credentialsId: "nexus-cred",
-		  groupId: "in.ashokit",
-		  nexusUrl: "192.168.49.100:8081",
-		  protocol: "http",
-		  repository: "maven-nexus-repo",
-		  version: "3.0"
+		          nexusArtifactUploader artifacts: [	
+			         [
+				      artifactId: '01-maven-web-app',
+				      classifier: '',
+				      file: 'target/01-maven-web-app-3.0.war',
+				      type: war		
+			        ]	
+		          ],
+		          credentialsId: 'nexus-cred',
+		          groupId: 'in.ashokit',
+		          nexusUrl: '192.168.49.100:8081',
+		          protocol: 'http',
+		          repository: 'maven-nexus-repo',
+		          version: '3.0'
 	        }
             }
 	
