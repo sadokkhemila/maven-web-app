@@ -31,7 +31,7 @@ pipeline {
 				      type: 'war'	
 			        ]	
 		  ],
-		  credentialsId: 'nexus-cred',
+		  credentialsId: 'nexus-jenk',
 		  groupId: 'in.ashokit',
 		  nexusUrl: '192.168.49.100:8081',
 		  nexusVersion: 'nexus3',
