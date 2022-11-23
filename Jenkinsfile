@@ -36,7 +36,7 @@ pipeline {
 		  nexusUrl: '192.168.49.100:8081',
 		  nexusVersion: 'nexus3',
 		  protocol: 'http',
-		  repository: 'http://192.168.49.100:8081/repository/maven-nexus-repo/',
+		  repository: 'maven-helloword',
 		  version: '3.0'
 	        }
             }
