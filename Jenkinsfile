@@ -34,6 +34,7 @@ pipeline {
 		          credentialsId: 'nexus-cred',
 		          groupId: 'in.ashokit',
 		          nexusUrl: '192.168.49.100:8081',
+		          nexusVersion: 'nexus3',
 		          protocol: 'http',
 		          repository: 'maven-nexus-repo',
 		          version: '3.0'
