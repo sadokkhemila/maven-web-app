@@ -27,7 +27,7 @@ pipeline {
 			         [
 				      artifactId: '01-maven-web-app',
 				      classifier: '',
-				      file: '/var/lib/jenkins/workspace/maven-nexus-p2/target/01-maven-web-app',
+				      file: '/var/lib/jenkins/workspace/maven-nexus-p2/target/01-maven-web-app.war',
 				      type: 'war'	
 			        ]	
 		  ],
