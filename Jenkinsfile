@@ -36,7 +36,7 @@ pipeline {
 		  nexusUrl: '51.38.50.55:8081',
 		  nexusVersion: 'nexus3',
 		  protocol: 'http',
-		  repository: 'testmaven',
+		  repository: 'testmaven-rel',
 		  version: '3.0'
 	        }
             }
