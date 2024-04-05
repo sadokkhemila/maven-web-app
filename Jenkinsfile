@@ -20,6 +20,9 @@ pipeline {
                 }
             }
         }
+	stage('Build Docker Imager'){
+              sh 'docker build -t myweb:0.0.1 .'
+        }
 	 stage('test sonarqube'){
             steps{
                 withSonarQubeEnv('sonarqube-server') {
