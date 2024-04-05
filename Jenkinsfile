@@ -21,7 +21,12 @@ pipeline {
             }
         }
 	stage('Build Docker Imager'){
-              sh 'docker build -t myweb:0.0.1 .'
+	   steps {
+                script {
+                      sh 'docker build -t sadok/myweb:0.0.1 .'
+                }
+            }
+            
         }
 	 stage('test sonarqube'){
             steps{
