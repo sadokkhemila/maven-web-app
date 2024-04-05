@@ -20,10 +20,11 @@ pipeline {
                 }
             }
         }
-	stage('Build Docker Imager'){
+	stage('Build Docker Imager et container'){
 	   steps {
                 script {
                       sh 'docker build -t sadok/myweb:0.0.1 .'
+		      sh 'docker run -d -p 8085:8085 --name myweb sadok/myweb:0.0.1'
                 }
             }
             
