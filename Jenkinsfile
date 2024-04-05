@@ -20,6 +20,13 @@ pipeline {
                 }
             }
         }
+	 stage('test sonarqube'){
+            steps{
+                withSonarQubeEnv('sonarqube-server') {
+                    sh 'mvn clean package sonar:sonar '
+                }
+            }
+        }
          stage('upload war to nexus'){
 	     steps{
 		
