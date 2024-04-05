@@ -31,12 +31,12 @@ pipeline {
 				      type: 'war'	
 			        ]	
 		  ],
-		  credentialsId: 'nexus-jenk',
+		  credentialsId: 'nexus-cred',
 		  groupId: 'in.ashokit',
-		  nexusUrl: '192.168.49.100:8081',
+		  nexusUrl: '51.38.50.55:8081',
 		  nexusVersion: 'nexus3',
 		  protocol: 'http',
-		  repository: 'maven-helloword',
+		  repository: 'testmaven',
 		  version: '3.0'
 	        }
             }
